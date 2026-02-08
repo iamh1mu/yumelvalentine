@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Yusraa ❤️ Himel</title>
+
+<style>
+body{
+ margin:0;
+ font-family:'Segoe UI',sans-serif;
+ background:linear-gradient(#ff4d6d,#ff8fa3);
+ color:white;
+ text-align:center;
+ overflow-x:hidden;
+}
+
+.page{display:none;padding:40px 20px;}
+.page.active{display:block;}
+
+button{
+ padding:14px 32px;
+ margin:10px;
+ border:none;
+ border-radius:30px;
+ font-size:16px;
+}
+
+.yes{background:white;color:#ff4d6d;}
+.no{background:#ffb3c1;cursor:not-allowed;}
+.next,.back{background:white;color:#ff4d6d;}
+
+.card{
+ background:rgba(255,255,255,0.15);
+ padding:30px;
+ border-radius:25px;
+}
+
+img{
+ max-width:90%;
+ border-radius:20px;
+ margin-top:15px;
+}
+
+.typing{
+ min-height:200px;
+ font-size:18px;
+ line-height:1.7;
+}
+
+/* floating hearts & kisses */
+.heart,.kiss{
+ position:fixed;
+ bottom:-20px;
+ animation:float 6s linear infinite;
+ font-size:22px;
+}
+
+@keyframes float{
+ 0%{transform:translateY(0);opacity:1;}
+ 100%{transform:translateY(-100vh);opacity:0;}
+}
+
+canvas{
+ position:fixed;
+ top:0;left:0;
+ width:100%;height:100%;
+ pointer-events:none;
+}
+
+/* LETTER POPUP */
+#letterPopup{
+ position:fixed;
+ inset:0;
+ background:rgba(0,0,0,0.6);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ opacity:0;
+ pointer-events:none;
+ transition:0.4s;
+ z-index:999;
+}
+
+#letterPopup.show{
+ opacity:1;
+ pointer-events:auto;
+}
+
+.letterBox{
+ background:white;
+ color:#ff4d6d;
+ width:90%;
+ max-width:450px;
+ padding:30px;
+ border-radius:25px;
+ text-align:left;
+ animation:pop 0.6s ease;
+ position:relative;
+}
+
+@keyframes pop{
+ from{transform:scale(0.5);opacity:0;}
+ to{transform:scale(1);opacity:1;}
+}
+
+.letterBox h2{
+ text-align:center;
+ margin-bottom:15px;
+}
+
+.letterBox p{
+ font-size:15px;
+ line-height:1.7;
+}
+
+.close{
+ position:absolute;
+ top:10px;
+ right:15px;
+ cursor:pointer;
+ font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+ <source src="romantic-music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PAGE 0 -->
+<div class="page active">
+ <h1>Yusraa, will you be Himel’s Valentine? 💘</h1>
+ <button class="yes" onclick="startLove()">Yes 💖</button>
+ <button class="no">No ❌</button>
+</div>
+
+<!-- PAGE 1 -->
+<div class="page">
+ <div class="card">
+  <h2>Happy Flowers Day, Yusraa Jaan 🌸</h2>
+  <div class="typing"></div>
+  <img src="c:\Users\antud\OneDrive\Desktop\Valentine226\IMG_0390.JPG (1).jpeg">
+ </div>
+ <button class="next" onclick="go(2)">Next ➡️</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+ <div class="card">
+  <h2>Happy Propose Day to you Yusraa Baby ❤️</h2>
+  <div class="typing"></div>
+  <img src="c:\Users\antud\OneDrive\Desktop\HImel valentine 2026\IMG_8490 (1).DNG">
+ </div>
+ <button class="back" onclick="go(1)">⬅️</button>
+ <button class="next" onclick="go(3)">➡️</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+ <div class="card">
+  <h2>Happy Chocolate Day to you My Yusraa Sweetheart 🍫</h2>
+  <div class="typing"></div>
+  <img src="c:\Users\antud\OneDrive\Desktop\HImel valentine 2026\IMG_9721.DNG">
+ </div>
+ <button class="back" onclick="go(2)">⬅️</button>
+ <button class="next" onclick="go(4)">➡️</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+ <div class="card">
+  <h2>Happy Teddy Day To you Yusraa cutie pie🧸</h2>
+  <div class="typing"></div>
+  <img src="c:\Users\antud\OneDrive\Desktop\HImel valentine 2026\WhatsApp Image 2026-02-08 at 4.38.53 AM.jpeg">
+ </div>
+ <button class="back" onclick="go(3)">⬅️</button>
+ <button class="next" onclick="go(5)">➡️</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page">
+ <div class="card">
+  <h2>My Promise to Yusraa Jaan 🤞</h2>
+  <div class="typing"></div>
+  <img src="c:\Users\antud\OneDrive\Desktop\Valentine226\IMG_0551[1].jpg">
+ </div>
+ <button class="back" onclick="go(4)">⬅️</button>
+ <button class="next" onclick="go(6)">➡️</button>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page">
+ <div class="card">
+  <h2>Happy Hug Day Yusraa Baby 🤗</h2>
+  <div class="typing"></div>
+  <img src="c:\Users\antud\OneDrive\Desktop\Valentine226\AGZXE8132[1].JPG">
+ </div>
+ <button class="back" onclick="go(5)">⬅️</button>
+ <button class="next" onclick="go(7)">➡️</button>
+</div>
+
+<!-- PAGE 7 -->
+<div class="page">
+ <div class="card">
+  <h2>Happy Kiss Day My Yusraa Jaanpakhi 💋</h2>
+  <div class="typing"></div>
+  <img src="c:\Users\antud\Downloads\IMG_9036.DNG">
+ </div>
+ <button class="back" onclick="go(6)">⬅️</button>
+ <button class="next" onclick="go(8)">➡️</button>
+</div>
+
+<!-- PAGE 8 -->
+<div class="page">
+ <canvas id="fireworks"></canvas>
+ <div class="card">
+  <h2>Happy Valentine’s Day, Yusraa Jaan 💘</h2>
+  <div class="typing"></div>
+  <img src="c:\Users\antud\Downloads\IMG_1078 (1).PNG">
+ </div>
+ <button class="back" onclick="go(7)">⬅️</button>
+ <button class="next" onclick="go(9)">➡️</button>
+</div>
+
+<!-- PAGE 9 -->
+<div class="page">
+ <div class="card">
+  <h2>Happy 7 Months Anniversary Yusraa My Comfort ❤️</h2>
+  <p>Tap the letter 💌</p>
+  <img src="c:\Users\antud\OneDrive\Desktop\Valentine226\download.png" onclick="openLetter()">
+  <img src="c:\Users\antud\Downloads\IMG_1080.PNG">
+ </div>
+ <button class="back" onclick="go(8)">⬅️</button>
+</div>
+
+<!-- LETTER POPUP -->
+<div id="letterPopup">
+ <div class="letterBox">
+  <span class="close" onclick="closeLetter()">✖</span>
+  <h2>My Letter to You, Yusraa 💌</h2>
+  <p>
+   Yusraa,<br><br>
+   These seven months with you are the most beautiful part of my life.
+   You entered my world silently, but you changed everything forever.
+   Your smile heals me, your care comforts me, and your love gives my life meaning.<br><br>
+
+   I promise to respect your feelings, protect your heart, and stand beside you
+   in every situation. No matter how hard life becomes, my hand will always reach
+   for yours. You are my peace, my happiness, and my forever home.<br><br>
+
+   Loving you is my favorite feeling in the world. ❤️
+  </p>
+ </div>
+</div>
+
+<script>
+const texts=[
+"",
+"Yusraa, just like flowers, you brought color, fragrance, and peace into my life. When everything felt empty, you became my warmth. Your smile feels like sunshine, and your presence makes my heart bloom every single day.",
+"When I first thought of proposing to you, my heart was shaking. I wasn’t fearless — I was deeply in love. I asked because my heart couldn’t stay silent anymore. Loving you feels natural, pure, and beautifully meant to be.",
+"Chocolate is sweet, but Yusraa, you are sweeter than anything I have ever known. Your words melt my heart, your care comforts my soul, and your love stays longer than any sweetness ever could.",
+"This teddy is not just a toy, Yusraa. It carries my hugs, my warmth, and my love for you whenever I can’t be beside you. Hold it close and feel my heart with you.",
+"I promise to keep you happy, to support you in every moment, to respect your feelings, and to protect your heart. Loving you is my responsibility and my greatest joy.",
+"The first time I hugged you, everything felt calm. In your arms, I found peace, safety, and a place where my heart truly belongs.",
+"Every kiss reminds me how deeply I’m in love with you. Your love feels magical, comforting, and real. Being yours is the most beautiful feeling of my life.",
+"Yusraa, you are my today, my tomorrow, and my forever Valentine. Loving you is not a choice anymore — it is who I am."
+];
+
+let fireworksStarted=false;
+
+function startLove(){
+ document.getElementById("music").play();
+ go(1);
+}
+
+function go(n){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ const page=document.querySelectorAll('.page')[n];
+ page.classList.add('active');
+
+ const box=page.querySelector('.typing');
+ if(box && texts[n]) typeText(box,texts[n]);
+
+ if(n===8 && !fireworksStarted){
+  startFireworks();
+  fireworksStarted=true;
+ }
+}
+
+function typeText(box,text){
+ box.innerHTML="";
+ let i=0;
+ const timer=setInterval(()=>{
+  box.innerHTML+=text.charAt(i++);
+  if(i>=text.length) clearInterval(timer);
+ },35);
+}
+
+/* HEARTS */
+setInterval(()=>{
+ const h=document.createElement("div");
+ h.className="heart";
+ h.innerHTML="💖";
+ h.style.left=Math.random()*100+"vw";
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),6000);
+},500);
+
+/* KISSES */
+setInterval(()=>{
+ const k=document.createElement("div");
+ k.className="kiss";
+ k.innerHTML="💋";
+ k.style.left=Math.random()*100+"vw";
+ document.body.appendChild(k);
+ setTimeout(()=>k.remove(),6000);
+},1200);
+
+/* FIREWORKS */
+function startFireworks(){
+ const c=document.getElementById("fireworks");
+ const ctx=c.getContext("2d");
+ c.width=innerWidth;
+ c.height=innerHeight;
+
+ setInterval(()=>{
+  ctx.clearRect(0,0,c.width,c.height);
+  for(let i=0;i<120;i++){
+   ctx.fillStyle = `hsl(${Math.random()*360},100%,60%)`;
+   ctx.beginPath();
+   ctx.arc(Math.random()*c.width,Math.random()*c.height,2,0,Math.PI*2);
+   ctx.fill();
+  }
+ },300);
+}
+
+function openLetter(){
+ document.getElementById("letterPopup").classList.add("show");
+}
+
+function closeLetter(){
+ document.getElementById("letterPopup").classList.remove("show");
+}
+</script>
+
+</body>
+</html>
